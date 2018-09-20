@@ -11,6 +11,7 @@ public class Conexion{
             System.out.println("ConexionEstablecida.");
             
         } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
         return conex;
     }
