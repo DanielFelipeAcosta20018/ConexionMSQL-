@@ -29,7 +29,22 @@ public class Tercero extends TerceroPOA {
 
     @Override
     public String consultarTercero(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String resultado ="";
+        try {
+            String sqlConsultar = "select*from terceros id = "+id;
+            obConexion.conectar();
+            Statement st = obConexion.conex.createStatement();
+            ResultSet rs  = st.executeQuery(sqlConsultar);
+            while (rs.next()) {
+               resultado += rs.getString(2)+"-"
+               +rs.getString(3)+"-"
+               +rs.getString(4);
+                
+            }
+        } catch (Exception e) {
+            System.out.println("error"+e.getMessage());
+        }
+        return resultado;
     }
 
     @Override
