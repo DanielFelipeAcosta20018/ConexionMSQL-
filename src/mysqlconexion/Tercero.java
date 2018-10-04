@@ -6,6 +6,7 @@
 package mysqlconexion;
 import Terceros.*;
 import java.sql.*;
+import javax.swing.JOptionPane;
 
 
 
@@ -41,6 +42,11 @@ public class Tercero extends TerceroPOA {
                +rs.getString(4);
                 
             }
+            
+            rs.close(); // resultado de la consultad del Query
+            obConexion.conex.close();
+            
+            
         } catch (Exception e) {
             System.out.println("error"+e.getMessage());
         }
@@ -50,6 +56,20 @@ public class Tercero extends TerceroPOA {
     @Override
     public void shoutdown() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    // creado un metodo propio
+    public ResultSet cargarTercero(){
+       ResultSet resultado = null;
+        try {
+            String sql = "Select Nombres, Apellidos, Telefono from Terceros";
+            obConexion.conectar(); // abrimos la conexion
+            Statement st = obConexion.conex.createStatement();//encargado de la consulta
+            resultado = st.executeQuery(sql);
+        } catch (Exception e) {
+            
+            JOptionPane.showMessageDialog(null, "Error "+e.getMessage());
+        }
+       return resultado;
     }
   
 }
