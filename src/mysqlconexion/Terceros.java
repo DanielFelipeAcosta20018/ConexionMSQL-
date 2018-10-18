@@ -77,6 +77,8 @@ public class Terceros extends javax.swing.JFrame {
         tblRegistros = new javax.swing.JTable();
         btnSalir = new javax.swing.JButton();
         btnConsultar = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        txtID = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -85,38 +87,43 @@ public class Terceros extends javax.swing.JFrame {
         lblNombre.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         lblNombre.setForeground(new java.awt.Color(0, 0, 0));
         lblNombre.setText("Nombre");
-        getContentPane().add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 104, 31));
+        getContentPane().add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 104, 31));
 
         lblApellidos.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         lblApellidos.setForeground(new java.awt.Color(0, 0, 0));
         lblApellidos.setText("Apellidos");
-        getContentPane().add(lblApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
+        getContentPane().add(lblApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
 
         lblTelefono.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         lblTelefono.setForeground(new java.awt.Color(0, 0, 0));
         lblTelefono.setText("Telefonos");
-        getContentPane().add(lblTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
+        getContentPane().add(lblTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, -1));
 
         txtNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNombreActionPerformed(evt);
             }
         });
-        getContentPane().add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 180, -1));
+        getContentPane().add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, 180, -1));
 
         btnGuardar.setBackground(new java.awt.Color(51, 255, 255));
         btnGuardar.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         btnGuardar.setForeground(new java.awt.Color(0, 0, 0));
         btnGuardar.setText("Guardar");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, 100, 50));
-        getContentPane().add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 180, -1));
+        getContentPane().add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 180, -1));
 
         txtTelefono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTelefonoActionPerformed(evt);
             }
         });
-        getContentPane().add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, 180, -1));
+        getContentPane().add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, 180, -1));
 
         btnEliminar.setBackground(new java.awt.Color(51, 255, 255));
         btnEliminar.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
@@ -150,7 +157,7 @@ public class Terceros extends javax.swing.JFrame {
         tblRegistros.setModel(modeloTabla);
         jScrollPane1.setViewportView(tblRegistros);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 400, 100));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 400, 100));
 
         btnSalir.setBackground(new java.awt.Color(51, 255, 255));
         btnSalir.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
@@ -174,9 +181,16 @@ public class Terceros extends javax.swing.JFrame {
         });
         getContentPane().add(btnConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 120, 40));
 
+        jLabel3.setText("id");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
+
+        txtID.setEditable(false);
+        txtID.setText("0");
+        getContentPane().add(txtID, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, 160, -1));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/91134-OIW11W-632.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 530, 450));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 530, 440));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -228,6 +242,36 @@ public class Terceros extends javax.swing.JFrame {
          JOptionPane.showMessageDialog(null,objTercero.consultarTercero(1));
     }//GEN-LAST:event_btnConsultarActionPerformed
 
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        // TODO add your handling code here:
+        
+        Tercero objTercero = new Tercero();
+        String nombres = txtNombre.getText();
+        String apellidos = txtApellido.getText();
+        String telefono = txtTelefono.getText();
+        int id = Integer.parseInt(txtID.getText());
+        if (id==0) {
+            
+        
+        boolean resultado = objTercero.insertarTercero(nombres, apellidos, telefono);
+        if (resultado== true) {
+            JOptionPane.showMessageDialog(null, "Se inserto un nuevo registro");
+           cargarTabla();
+        }else{
+            JOptionPane.showMessageDialog(null, "Erro al inserta su datos ");
+            }
+        }else{
+            boolean resultado = objTercero.actualizarTercero(id, nombres, apellidos, telefono);
+            if (resultado== true) {
+            JOptionPane.showMessageDialog(null, "Se actualizo el registro");
+            cargarTabla();
+        }else{
+            JOptionPane.showMessageDialog(null, "Erro al actualizar  ");
+            }
+        } 
+        
+    }//GEN-LAST:event_btnGuardarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -271,12 +315,14 @@ public class Terceros extends javax.swing.JFrame {
     private javax.swing.JButton btnSalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblApellidos;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblTelefono;
     private javax.swing.JTable tblRegistros;
     private javax.swing.JTextField txtApellido;
+    private javax.swing.JTextField txtID;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtTelefono;
     // End of variables declaration//GEN-END:variables
